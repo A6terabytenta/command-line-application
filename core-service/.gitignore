@@ -1,3 +1,6 @@
+.mvn
+/target/*
+/data/*
 
 ### STS ###
 .apt_generated
@@ -7,9 +10,6 @@
 .settings
 .springBeans
 bin/
-
-# Log file
-*.log
 
 ### IntelliJ IDEA ###
 .idea
