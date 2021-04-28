@@ -12,7 +12,7 @@ A command line application to search the data and return the results in a human 
 
 ## Solution
 
-## Technologies applied for the project
+## Technologies are used in the project
 1. Spring Boot version ``2.2.6``
 2. Maven to manage dependency and build project
 3. Code quality assurance with Sonar and PMD
