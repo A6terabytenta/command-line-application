@@ -15,7 +15,7 @@ A command line application to search the data and return the results in a human 
 ## Technologies applied for the project
 1. Spring Boot version ``2.2.6``
 2. Maven to manage dependency and build project
-3. Code quality assurance with PMD
+3. Code quality assurance with Sonar and PMD
 4. Libraries: Lombok ``1.18.12``, Jackson ``2.10.3``
 
 ## Class Diagram
@@ -23,7 +23,7 @@ A command line application to search the data and return the results in a human 
 ## How to start project?
 
 ## Test Coverage - ``80%``
-- I will use mock tests ``Mockito`` to write unit test.
+- I will use ``Mockito`` to write unit test.
 
 ## Code Quality - ``Passed``
 - Sonar and PMD
