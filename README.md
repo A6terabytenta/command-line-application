@@ -11,6 +11,8 @@ A command line application to search the data and return the results in a human 
 * Search can get pretty complicated pretty easily, we just want to see that you can code a basic search application.
 
 ## Solution
+- Read data from JSON files and then parse it to object by using Object Mapper.
+- 
 
 ## Technologies are used in the project
 1. Spring Boot version ``2.2.6``
@@ -33,3 +35,5 @@ A command line application to search the data and return the results in a human 
 ## Project Structure
 
 ## Issues
+- The challenge file that you give me is a binary file and seems like it was written in MAC OS and it can't be run in
+ Window OS. Therefore, I will build an application based on the instructions in the instructions.pdf file.

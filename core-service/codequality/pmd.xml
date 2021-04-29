@@ -18,7 +18,9 @@
         <exclude name="DefaultPackage"/>
         <exclude name="ClassNamingConventions"/>
     </rule>
-    <rule ref="category/java/bestpractices.xml"/>
+    <rule ref="category/java/bestpractices.xml">
+        <exclude name="SystemPrintln"/>
+    </rule>
     <rule ref="category/java/design.xml">
         <exclude name="LawOfDemeter"/>
         <exclude name="ExcessiveImports"/>
