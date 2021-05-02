@@ -33,6 +33,39 @@ A command line application to search the data and return the results in a human 
 ## API List
 
 ## Project Structure
+```
+command-line-application
+├───core-domain
+│   ├───codequality: Defines PMD rules
+│   ├───src
+│   │   └───main
+│   │       └───java
+│   │           └───com.ntatvr.domain
+│   │                       └───entities: Contains Entities of the application
+├───core-service
+│   ├───codequality: Defines PMD rules
+│   ├───src
+│   │   ├───main
+│   │   │   ├───java
+│   │   │   │   └───com.ntatvr.core
+│   │   │   │               ├───config: Contains all configuration
+│   │   │   │               ├───exceptions: Defines exception
+│   │   │   │               ├───repositories
+│   │   │   │               │   ├───organization
+│   │   │   │               │   ├───ticket
+│   │   │   │               │   └───user
+│   │   │   │               ├───scanner
+│   │   │   │               │   └───search
+│   │   │   │               ├───services
+│   │   │   │               │   ├───organization
+│   │   │   │               │   ├───ticket
+│   │   │   │               │   └───user
+│   │   │   │               └───utils:
+│   │   │   └───resources
+│   │   │       └───data: JSON files
+│   │   └───test: test classes
+└───external-image: Contains diagrams
+```
 
 ## Issues
 - The challenge file that you give me is a binary file and seems like it was written in MAC OS and it can't be run in
