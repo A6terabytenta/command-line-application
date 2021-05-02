@@ -1,27 +1,23 @@
 package com.ntatvr.core.scanner;
 
-import java.util.Scanner;
+import lombok.RequiredArgsConstructor;
 
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor
 public class MainHandler extends AbstractHandler {
 
   private static final String INTRODUCTION = "\nType 'quit' to exit at any time. Press 'Enter' to continue";
-  private static final String INTRODUCTION_OPTIONS = "\nSelect search options:\n"
+  private static final String INTRODUCTION_OPTIONS = "Select search options:\n"
       + "* Press 1 to search\n"
       + "* Press 2 to view a list of searchable fields\n"
       + "* Type 'quit' to exit";
 
-  private final SearchHandler searchHandler;
-  private final SearchableFieldsHandler searchableFieldsHandler;
-
-  public MainHandler(final Scanner scanner) {
-    super(scanner);
-    searchHandler = new SearchHandler(scanner);
-    searchableFieldsHandler = new SearchableFieldsHandler(scanner);
-  }
+  private final SearchModelsHandler searchModelsHandler;
 
   @Override
-  public void execute() {
+  public void executeSearch() {
     System.out.println(INTRODUCTION);
     boolean isContinue = true;
 
@@ -31,10 +27,10 @@ public class MainHandler extends AbstractHandler {
       final String input = getInput(false);
       switch (input) {
         case "1":
-          searchHandler.execute();
+          searchModelsHandler.executeSearch();
           break;
         case "2":
-          searchableFieldsHandler.execute();
+          searchModelsHandler.executeSearchableFields();
           break;
         case QUIT_OPTION:
           isContinue = false;

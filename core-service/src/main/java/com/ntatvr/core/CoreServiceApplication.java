@@ -1,9 +1,8 @@
 package com.ntatvr.core;
 
-import java.util.Scanner;
-
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,10 +18,11 @@ public class CoreServiceApplication implements CommandLineRunner {
     SpringApplication.run(CoreServiceApplication.class, args);
   }
 
+  @Autowired
+  private MainHandler mainHandler;
+
   @Override
   public void run(final String... args) {
-    final Scanner scanner = new Scanner(System.in);
-    new MainHandler(scanner).execute();
-    scanner.close();
+    mainHandler.executeSearch();
   }
 }
