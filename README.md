@@ -30,8 +30,6 @@ A command line application to search the data and return the results in a human 
 ## Code Quality - ``Passed``
 - PMD
 
-## API List
-
 ## Project Structure
 ```
 command-line-application
