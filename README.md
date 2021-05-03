@@ -30,8 +30,6 @@ A command line application to search the data and return the results in a human 
 ## Code Quality - ``Passed``
 - PMD
 
-## API List
-
 ## Project Structure
 ```
 command-line-application
@@ -51,7 +49,8 @@ command-line-application
 │   │   │   │               ├───config: Includes all configuration
 │   │   │   │               ├───exceptions: Includes exception defined
 │   │   │   │               ├───repositories
-│   │   │   │               │   ├───organization: Take the responsibility of read data from organizations.json file under the resource folder and save it to it to corresponding │   │   │   │               │   |   Map by field names.
+│   │   │   │               │   ├───organization: Take the responsibility of read data from organizations.json file under the resource folder and save it to it to corresponding
+│   │   │   │               │   |   Map by field names.
 │   │   │   │               │   ├───ticket: Take the responsibility of read data from tickets.json file under the resource folder and save it to it to corresponding 
 │   |   |   |               |   |   Map by field names.
 │   │   │   │               │   └───user: Take the responsibility of read data from users.json file under the resource folder and save it to it to corresponding 
