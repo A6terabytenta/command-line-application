@@ -91,7 +91,7 @@
                                 </rule>
                             </rules>
                             <excludes>
-                                <exclude>com/ntatvr/core/config/**/*</exclude>
+                                <exclude>com/ntatvr/core/scanner/**/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>

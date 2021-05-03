@@ -116,7 +116,7 @@ public class UserRepositoryImpl extends AbstractRepository<UserEntity> implement
 
   @Override
   public List<UserEntity> getBySignature(final String signature) {
-    return MapUtils.getValueAsList(userByLocaleMap, signature);
+    return MapUtils.getValueAsList(userBySignatureMap, signature);
   }
 
   @Override
