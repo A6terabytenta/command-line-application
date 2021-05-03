@@ -19,6 +19,7 @@ A command line application to search the data and return the results in a human 
 2. Maven to manage dependency and build project
 3. Code quality assurance with PMD
 4. Libraries: Lombok ``1.18.12``, Jackson ``2.10.3``
+5. Setup test coverage with Jacoco
 
 ## Class Diagram
 
