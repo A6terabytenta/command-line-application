@@ -71,11 +71,11 @@ command-line-application
 │   │   │   │               │   ├───organization
 │   │   │   │               │   ├───ticket
 │   │   │   │               │   └───user
-│   │   │   │               └───utils: Includes seme utils class such as MapUtils, Validator
+│   │   │   │               └───utils: Includes some utils class such as MapUtils, Validator
 │   │   │   └───resources
 │   │   │       └───data: JSON files
 │   │   └───test: test classes
-└───external-image: Contains diagrams
+└───external-image: Contains diagrams and some example images
 ```
 
 ## Issues
