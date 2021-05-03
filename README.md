@@ -11,13 +11,13 @@ A command line application to search the data and return the results in a human 
 * Search can get pretty complicated pretty easily, we just want to see that you can code a basic search application.
 
 ## Solution
-- Read data from JSON files and then parse it to object by using Object Mapper.
-- 
+- When starting the application, read data from JSON files and then parse it to object by using Object Mapper and save it to corresponding Map.
+- Because we must be able to search all fields in the fastest way, so I'm using Map to reduce the complexity time. The trade-off is that it will take a lot of time when starting the application.
 
 ## Technologies are used in the project
 1. Spring Boot version ``2.2.6``
 2. Maven to manage dependency and build project
-3. Code quality assurance with Sonar and PMD
+3. Code quality assurance with PMD
 4. Libraries: Lombok ``1.18.12``, Jackson ``2.10.3``
 
 ## Class Diagram
@@ -28,7 +28,7 @@ A command line application to search the data and return the results in a human 
 - I will use ``Mockito`` to write unit test.
 
 ## Code Quality - ``Passed``
-- Sonar and PMD
+- PMD
 
 ## API List
 
@@ -48,19 +48,21 @@ command-line-application
 │   │   ├───main
 │   │   │   ├───java
 │   │   │   │   └───com.ntatvr.core
-│   │   │   │               ├───config: Contains all configuration
-│   │   │   │               ├───exceptions: Defines exception
+│   │   │   │               ├───config: Includes all configuration
+│   │   │   │               ├───exceptions: Includes exception defined
 │   │   │   │               ├───repositories
-│   │   │   │               │   ├───organization
-│   │   │   │               │   ├───ticket
-│   │   │   │               │   └───user
+│   │   │   │               │   ├───organization: Take the responsibility of read data from organizations.json file under the resource folder and save it to it to corresponding │   │   │   │               │   |   Map by field names.
+│   │   │   │               │   ├───ticket: Take the responsibility of read data from tickets.json file under the resource folder and save it to it to corresponding 
+│   |   |   |               |   |   Map by field names.
+│   │   │   │               │   └───user: Take the responsibility of read data from users.json file under the resource folder and save it to it to corresponding 
+│   |   |   |               |   |   Map by field names.
 │   │   │   │               ├───scanner
-│   │   │   │               │   └───search
+│   │   │   │               │   └───search: Receive the input from console and then execute corresponding functions.
 │   │   │   │               ├───services
 │   │   │   │               │   ├───organization
 │   │   │   │               │   ├───ticket
 │   │   │   │               │   └───user
-│   │   │   │               └───utils:
+│   │   │   │               └───utils: Includes seme utils class such as MapUtils, Validator
 │   │   │   └───resources
 │   │   │       └───data: JSON files
 │   │   └───test: test classes
