@@ -23,6 +23,16 @@ A command line application to search the data and return the results in a human 
 ## Class Diagram
 
 ## How to start project?
+1. Build the project with this command line: ```mvn clean install```
+2. Run the jar file under the /core-service/target folder: ```java -jar core-service.jar```
+![](external-image/start.jpg)
+
+## Example
+### Search user by user id
+![](external-image/search-user-by-id.jpg)
+
+### Searchable fields of user
+![](external-image/searchable-fields.jpg)
 
 ## Test Coverage - ``80%``
 - I will use ``Mockito`` to write unit test.
