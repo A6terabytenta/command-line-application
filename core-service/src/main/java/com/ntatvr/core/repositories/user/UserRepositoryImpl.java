@@ -38,20 +38,20 @@ public class UserRepositoryImpl extends AbstractRepository<UserEntity> implement
   private final Map<Long, List<UserEntity>> userByOrganizationIdMap = new HashMap<>();
   private final Map<Boolean, List<UserEntity>> userBySuspendedMap = new HashMap<>();
   private final Map<String, List<UserEntity>> userByRoleMap = new HashMap<>();
+  private final Map<String, List<UserEntity>> userByLoginAtMap = new HashMap<>();
 
   @Autowired
   private JsonReader jsonReader;
 
   @PostConstruct
   public void init() throws IOException {
-    System.out.println("Loading Users from: " + userJsonData);
     jsonReader.readFromFile(userJsonData, new TypeReference<List<UserEntity>>() {
     }).forEach(user -> {
-      userByIdMap.put(user.getId(), user);
-      userByUrlMap.put(user.getUrl(), user);
-      userByExternalIdMap.put(user.getExternalId(), user);
-      CollectionUtils.emptyIfNull(user.getTags()).forEach(tag -> MapUtils.addValueToMap(userByTagMap, tag, user));
-
+      entityByIdMap.put(user.getId(), user);
+      entityByUrlMap.put(user.getUrl(), user);
+      entityByExternalIdMap.put(user.getExternalId(), user);
+      MapUtils.addValueToMap(entityByCreatedAtMap, user.getCreatedAt(), user);
+      CollectionUtils.emptyIfNull(user.getTags()).forEach(tag -> MapUtils.addValueToMap(entityByTagMap, tag, user));
       MapUtils.addValueToMap(userByNameMap, user.getName(), user);
       MapUtils.addValueToMap(userByAliasMap, user.getAlias(), user);
       MapUtils.addValueToMap(userByActiveMap, user.getActive(), user);
@@ -65,8 +65,8 @@ public class UserRepositoryImpl extends AbstractRepository<UserEntity> implement
       MapUtils.addValueToMap(userByOrganizationIdMap, user.getOrganizationId(), user);
       MapUtils.addValueToMap(userBySuspendedMap, user.getSuspended(), user);
       MapUtils.addValueToMap(userByRoleMap, user.getRole(), user);
+      MapUtils.addValueToMap(userByLoginAtMap, user.getLastLoginAt(), user);
     });
-    System.out.println("Load Users successful");
   }
 
   @Override
@@ -132,5 +132,10 @@ public class UserRepositoryImpl extends AbstractRepository<UserEntity> implement
   @Override
   public List<UserEntity> getByRole(final String role) {
     return MapUtils.getValueAsList(userByRoleMap, role);
+  }
+
+  @Override
+  public List<UserEntity> getByLastLoginAt(final String lastLoginAt) {
+    return MapUtils.getValueAsList(userByLoginAtMap, lastLoginAt);
   }
 }

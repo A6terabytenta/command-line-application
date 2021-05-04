@@ -34,19 +34,20 @@ public class TicketRepositoryImpl extends AbstractRepository<TicketEntity> imple
   private final Map<Long, List<TicketEntity>> ticketByOrganizationIdMap = new HashMap<>();
   private final Map<Boolean, List<TicketEntity>> ticketByHasIncidentsMap = new HashMap<>();
   private final Map<String, List<TicketEntity>> ticketByViaMap = new HashMap<>();
+  private final Map<String, List<TicketEntity>> ticketByDueAtMap = new HashMap<>();
 
   @Autowired
   private JsonReader jsonReader;
 
   @PostConstruct
   public void init() throws IOException {
-    System.out.println("Loading Tickets from: " + ticketJsonData);
     jsonReader.readFromFile(ticketJsonData, new TypeReference<List<TicketEntity>>() {
     }).forEach(ticket -> {
-      userByIdMap.put(ticket.getId(), ticket);
-      userByUrlMap.put(ticket.getUrl(), ticket);
-      userByExternalIdMap.put(ticket.getExternalId(), ticket);
-      CollectionUtils.emptyIfNull(ticket.getTags()).forEach(tag -> MapUtils.addValueToMap(userByTagMap, tag, ticket));
+      entityByIdMap.put(ticket.getId(), ticket);
+      entityByUrlMap.put(ticket.getUrl(), ticket);
+      entityByExternalIdMap.put(ticket.getExternalId(), ticket);
+      MapUtils.addValueToMap(entityByCreatedAtMap, ticket.getCreatedAt(), ticket);
+      CollectionUtils.emptyIfNull(ticket.getTags()).forEach(tag -> MapUtils.addValueToMap(entityByTagMap, tag, ticket));
       MapUtils.addValueToMap(ticketByTypeMap, ticket.getType(), ticket);
       MapUtils.addValueToMap(ticketBySubjectMap, ticket.getSubject(), ticket);
       MapUtils.addValueToMap(ticketByDescriptionMap, ticket.getDescription(), ticket);
@@ -57,8 +58,8 @@ public class TicketRepositoryImpl extends AbstractRepository<TicketEntity> imple
       MapUtils.addValueToMap(ticketByOrganizationIdMap, ticket.getOrganizationId(), ticket);
       MapUtils.addValueToMap(ticketByHasIncidentsMap, ticket.getHasIncidents(), ticket);
       MapUtils.addValueToMap(ticketByViaMap, ticket.getVia(), ticket);
+      MapUtils.addValueToMap(ticketByDueAtMap, ticket.getDueAt(), ticket);
     });
-    System.out.println("Load Tickets successful");
   }
 
   @Override
@@ -109,5 +110,10 @@ public class TicketRepositoryImpl extends AbstractRepository<TicketEntity> imple
   @Override
   public List<TicketEntity> getByVia(final String via) {
     return MapUtils.getValueAsList(ticketByViaMap, via);
+  }
+
+  @Override
+  public List<TicketEntity> getByDueAt(final String dueAt) {
+    return MapUtils.getValueAsList(ticketByDueAtMap, dueAt);
   }
 }

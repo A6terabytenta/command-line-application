@@ -33,12 +33,14 @@ public class OrganizationServiceImpl implements OrganizationService {
 
   static {
     SEARCHABLE_FIELDS.add(ID_FIELD);
+    SEARCHABLE_FIELDS.add(URL_FIELD);
     SEARCHABLE_FIELDS.add(CREATED_AT_FIELD);
     SEARCHABLE_FIELDS.add(EXTERNAL_ID_FIELD);
     SEARCHABLE_FIELDS.add(NAME_FIELD);
     SEARCHABLE_FIELDS.add(DOMAIN_NAMES_FIELD);
     SEARCHABLE_FIELDS.add(DETAILS_FIELD);
     SEARCHABLE_FIELDS.add(SHARED_TICKETS_FIELD);
+    SEARCHABLE_FIELDS.add(TAGS_FIELD);
   }
 
   @Override
@@ -70,6 +72,8 @@ public class OrganizationServiceImpl implements OrganizationService {
       case SHARED_TICKETS_FIELD:
         Validator.validateBooleanFormat(value);
         return organizationRepository.getBySharedTickets(BooleanUtils.toBoolean(value));
+      case CREATED_AT_FIELD:
+        return organizationRepository.getByCreatedAt(value);
       default:
         throw new UnsupportedOperationException();
     }

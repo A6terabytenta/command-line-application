@@ -14,4 +14,6 @@ public interface BaseRepository<T extends BaseEntity> {
   Optional<T> getByExternalId(final String externalId);
 
   List<T> getByTag(final String tag);
+
+  List<T> getByCreatedAt(final String createdAt);
 }

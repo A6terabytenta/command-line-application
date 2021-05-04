@@ -34,21 +34,20 @@ public class OrganizationRepositoryImpl extends AbstractRepository<OrganizationE
 
   @PostConstruct
   public void init() throws IOException {
-    System.out.println("Loading Organizations from: " + ticketJsonData);
     jsonReader.readFromFile(ticketJsonData, new TypeReference<List<OrganizationEntity>>() {
     }).forEach(organization -> {
-      userByIdMap.put(organization.getId(), organization);
-      userByUrlMap.put(organization.getUrl(), organization);
-      userByExternalIdMap.put(organization.getExternalId(), organization);
+      entityByIdMap.put(organization.getId(), organization);
+      entityByUrlMap.put(organization.getUrl(), organization);
+      entityByExternalIdMap.put(organization.getExternalId(), organization);
+      MapUtils.addValueToMap(entityByCreatedAtMap, organization.getCreatedAt(), organization);
       CollectionUtils.emptyIfNull(organization.getTags())
-          .forEach(tag -> MapUtils.addValueToMap(userByTagMap, tag, organization));
+          .forEach(tag -> MapUtils.addValueToMap(entityByTagMap, tag, organization));
       CollectionUtils.emptyIfNull(organization.getDomainNames())
           .forEach(domain -> MapUtils.addValueToMap(organizationByDomainNamesMap, domain, organization));
       MapUtils.addValueToMap(organizationByDetailsMap, organization.getDetails(), organization);
       MapUtils.addValueToMap(organizationBySharedTicketsMap, organization.getSharedTickets(), organization);
       MapUtils.addValueToMap(organizationByNameMap, organization.getName(), organization);
     });
-    System.out.println("Load Organizations successful");
   }
 
   @Override

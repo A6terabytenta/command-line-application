@@ -17,6 +17,7 @@ import static com.ntatvr.domain.entities.UserEntity.ROLE_FIELD;
 import static com.ntatvr.domain.entities.UserEntity.SHARED_FIELD;
 import static com.ntatvr.domain.entities.UserEntity.SIGNATURE_FIELD;
 import static com.ntatvr.domain.entities.UserEntity.SUSPENDED_FIELD;
+import static com.ntatvr.domain.entities.UserEntity.TIMEZONE_FIELD;
 import static com.ntatvr.domain.entities.UserEntity.VERIFIED_FIELD;
 
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class UserServiceImpl implements UserService {
     SEARCHABLE_FIELDS.add(ORGANIZATION_ID_FIELD);
     SEARCHABLE_FIELDS.add(PHONE_FIELD);
     SEARCHABLE_FIELDS.add(ROLE_FIELD);
+    SEARCHABLE_FIELDS.add(TIMEZONE_FIELD);
     SEARCHABLE_FIELDS.add(SHARED_FIELD);
     SEARCHABLE_FIELDS.add(SIGNATURE_FIELD);
     SEARCHABLE_FIELDS.add(SUSPENDED_FIELD);
@@ -110,10 +112,14 @@ public class UserServiceImpl implements UserService {
       case SUSPENDED_FIELD:
         Validator.validateBooleanFormat(value);
         return userRepository.getBySuspended(BooleanUtils.toBoolean(value));
+      case TIMEZONE_FIELD:
+        return userRepository.getByTimezone(value);
       case ROLE_FIELD:
         return userRepository.getByRole(value);
       case CREATED_AT_FIELD:
+        return userRepository.getByCreatedAt(value);
       case LAST_LOGIN_AT_FIELD:
+        return userRepository.getByLastLoginAt(value);
       default:
         throw new UnsupportedOperationException();
     }

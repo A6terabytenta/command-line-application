@@ -85,7 +85,7 @@ public class UserRepositoryTest extends MockTest {
   }
 
   @Test
-  public void getByPriority_shouldReturnData() {
+  public void getByName_shouldReturnData() {
     final List<UserEntity> userEntities = userRepository.getByName(userEntity.getName());
     MatcherAssert.assertThat(userEntities, Matchers.hasSize(1));
     MatcherAssert.assertThat(userEntities.get(0), Matchers.is(userEntity));

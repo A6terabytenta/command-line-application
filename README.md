@@ -26,6 +26,8 @@ A command line application to search the data and return the results in a human 
 
 ## How to start project?
 1. Build the project with this command line: ```mvn clean install```
+![](external-image/build-success.jpg)
+
 2. Run the jar file under the /core-service/target folder: ```java -jar core-service.jar```
 ![](external-image/start.jpg)
 
@@ -39,8 +41,12 @@ A command line application to search the data and return the results in a human 
 ### Searchable fields of user
 ![](external-image/searchable-fields.jpg)
 
+### Error
+![](external-image/error.jpg)
+
 ## Test Coverage - ``80%``
-- I will use ``Mockito`` to write unit test.
+- Use ``Mockito`` to write unit tests for repositories and services ``Done``
+- Write integration test for scanner handlers **TO Be Updated**
 
 ## Code Quality - ``Passed``
 - PMD
@@ -63,22 +69,15 @@ command-line-application
 │   │   │   │   └───com.ntatvr.core
 │   │   │   │               ├───config: Includes all configuration
 │   │   │   │               ├───exceptions: Includes exception defined
-│   │   │   │               ├───repositories
-│   │   │   │               │   ├───organization: Take the responsibility of read data from organizations.json file under the resource folder and save it to it to corresponding
-│   │   │   │               │   |   Map by field names.
-│   │   │   │               │   ├───ticket: Take the responsibility of read data from tickets.json file under the resource folder and save it to it to corresponding 
-│   |   |   |               |   |   Map by field names.
-│   │   │   │               │   └───user: Take the responsibility of read data from users.json file under the resource folder and save it to it to corresponding 
-│   |   |   |               |   |   Map by field names.
+│   │   │   │               ├───repositories: Take the responsibility of read data from JSON.json files under
+│   │   │   │               │       the resource folder and save it to it to corresponding Map.
 │   │   │   │               ├───scanner
 │   │   │   │               │   └───search: Receive the input from console and then execute corresponding functions.
 │   │   │   │               ├───services
-│   │   │   │               │   ├───organization
-│   │   │   │               │   ├───ticket
-│   │   │   │               │   └───user
 │   │   │   │               └───utils: Includes some utils class such as MapUtils, Validator
 │   │   │   └───resources
 │   │   │       └───data: JSON files
+│   │   │       └───application.yaml: Application settings
 │   │   └───test: test classes
 └───external-image: Contains diagrams and some example images
 ```

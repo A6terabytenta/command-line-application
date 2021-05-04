@@ -26,4 +26,7 @@ public interface TicketRepository extends BaseRepository<TicketEntity> {
   List<TicketEntity> getByHasIncidents(final Boolean hasIncidents);
 
   List<TicketEntity> getByVia(final String via);
+
+  List<TicketEntity> getByDueAt(final String dueAt);
+
 }

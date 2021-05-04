@@ -102,7 +102,9 @@ public class TicketServiceImpl implements TicketService {
       case VIA_FIELD:
         return ticketRepository.getByVia(value);
       case CREATED_AT_FIELD:
+        return ticketRepository.getByCreatedAt(value);
       case DUE_AT_FIELD:
+        return ticketRepository.getByDueAt(value);
       default:
         throw new UnsupportedOperationException();
     }

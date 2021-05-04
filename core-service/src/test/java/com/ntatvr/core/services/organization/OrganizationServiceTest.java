@@ -61,9 +61,9 @@ public class OrganizationServiceTest extends MockTest {
   @Test
   public void getSearchableFields_shouldReturnData() {
     final List<String> searchableFields = organizationService.getSearchableFields();
-    MatcherAssert.assertThat(searchableFields, Matchers.hasSize(7));
+    MatcherAssert.assertThat(searchableFields, Matchers.hasSize(9));
     MatcherAssert.assertThat(searchableFields, Matchers.containsInAnyOrder(ID_FIELD, CREATED_AT_FIELD,
-        EXTERNAL_ID_FIELD, NAME_FIELD, DOMAIN_NAMES_FIELD, DETAILS_FIELD, SHARED_TICKETS_FIELD));
+        EXTERNAL_ID_FIELD, NAME_FIELD, DOMAIN_NAMES_FIELD, DETAILS_FIELD, SHARED_TICKETS_FIELD, URL_FIELD, TAGS_FIELD));
   }
 
   @Test

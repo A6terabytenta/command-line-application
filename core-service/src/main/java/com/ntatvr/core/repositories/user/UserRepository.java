@@ -33,4 +33,7 @@ public interface UserRepository extends BaseRepository<UserEntity> {
   List<UserEntity> getBySuspended(final Boolean suspended);
 
   List<UserEntity> getByRole(final String role);
+
+  List<UserEntity> getByLastLoginAt(final String lastLoginAt);
+
 }
