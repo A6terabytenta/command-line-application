@@ -21,6 +21,7 @@ A command line application to search the data and return the results in a human 
 4. Libraries: Lombok ``1.18.12``, Jackson ``2.10.3``
 
 ## Class Diagram
+![](external-image/class-diagram.jpg)
 
 ## How to start project?
 1. Build the project with this command line: ```mvn clean install```
@@ -30,6 +31,9 @@ A command line application to search the data and return the results in a human 
 ## Example
 ### Search user by user id
 ![](external-image/search-user-by-id.jpg)
+
+### Not Found
+![](external-image/not-found.jpg)
 
 ### Searchable fields of user
 ![](external-image/searchable-fields.jpg)
